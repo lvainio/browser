@@ -7,7 +7,7 @@ class Url {
 public:
     explicit Url(const std::string& rawUrl);
 
-    void request();
+    std::string request();
 
     std::string toString();
 
