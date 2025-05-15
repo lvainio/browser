@@ -37,7 +37,13 @@ Run the executable:
 ./browser
 ```
 
-## Format
+## Clang Format
+
+### Ubuntu
+
+#### Prerequisites
+
+- Clang-format 20 or later.
 
 Automatically format the file:
 ```bash
@@ -48,3 +54,13 @@ Check if formatting is needed:
 ```bash
 clang-format --dry-run --Werror file
 ```
+
+## Clang Tidy
+
+### Ubuntu
+
+#### Prerequisites
+
+- Clang-tidy 20 or later.
+
+clang-tidy src/url.h -p build
