@@ -48,3 +48,6 @@ Check if formatting is needed:
 ```bash
 clang-format --dry-run --Werror file
 ```
+
+
+JUST SOME TEST TEXT
