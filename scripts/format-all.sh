@@ -1,6 +1,9 @@
 #!/bin/bash
 
-dirs=(../src)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+dirs=($REPO_ROOT/src)
 
 for file in $(find "${dirs[@]}" -type f \( -name '*.cpp' -o -name '*.h' \)); do
   clang-format -i "$file"
