@@ -36,3 +36,15 @@ Run the executable:
 ```bash
 ./browser
 ```
+
+## Format
+
+Automatically format the file:
+```bash
+clang-format -i file
+```
+
+Check if formatting is needed:
+```bash
+clang-format --dry-run --Werror file
+```

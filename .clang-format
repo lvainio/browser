@@ -1,0 +1,8 @@
+---
+Language: Cpp
+AccessModifierOffset: -4
+IndentAccessModifiers: false
+IndentWidth: 4
+UseTab: Never
+...
+
