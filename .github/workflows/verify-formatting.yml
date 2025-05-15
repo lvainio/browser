@@ -8,6 +8,7 @@ on:
 
 jobs:
   clang-format-check:
+    name: Verify Formatting
     runs-on: ubuntu-latest
 
     steps:
