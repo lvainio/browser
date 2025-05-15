@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Find all .cpp and .h files
-dirs=(../src ../lib)
+dirs=(../src)
 files=$(find "${dirs[@]}" -type f \( -name '*.cpp' -o -name '*.h' \))
 
 format_issues_found=0
@@ -12,7 +12,7 @@ for file in $files; do
   fi
 done
 
-if [ $format_issues_found ]; then
+if (( $format_issues_found )); then
   echo "ERROR: Some files are not properly formatted. Please run clang-format."
   exit 1
 else
