@@ -129,4 +129,6 @@ std::string Url::request() {
     return response_body;
 }
 
-std::string Url::toString() { return scheme_ + "://" + host_ + path_; }
+std::string Url::toString() {
+    return scheme_ + "://" + host_ + path_;
+}

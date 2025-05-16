@@ -2,17 +2,43 @@
 Language: Cpp
 AccessModifierOffset: -4
 AlignAfterOpenBracket: BlockIndent
-AlignArrayOfStructures: Left
+AlignArrayOfStructures: None
 AlignConsecutiveAssignments: None
 AlignConsecutiveBitFields: None
 AlignConsecutiveDeclarations: None
 AlignConsecutiveMacros: None
+AlignConsecutiveShortCaseStatements: 
+  Enabled: false
+AlignConsecutiveTableGenBreakingDAGArgColons: None
+AlignConsecutiveTableGenCondOperatorColons: None
+AlignConsecutiveTableGenDefinitionColons: None
 AlignEscapedNewlines: Left
+# FIXME: Decide AlignOperands style
+AlignOperands: Align
+AlignTrailingComments: 
+  Kind:            Always
+  OverEmptyLines:  0
 AllowAllArgumentsOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
+AllowBreakBeforeNoexceptSpecifier: Never
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseExpressionOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortCompoundRequirementOnASingleLine: true
+AllowShortEnumsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLambdasOnASingleLine: All
+AllowShortLoopsOnASingleLine: false
+AllowShortNamespacesOnASingleLine: false
+AlwaysBreakBeforeMultilineStrings: false
+# FIXME: AttributeMacros
+AttributeMacros: []
 BinPackArguments: false
 BinPackParameters: OnePerLine
+BitFieldColonSpacing: Both
 IndentAccessModifiers: false
+IndentCaseLabels: true
 IndentWidth: 4
 InsertNewlineAtEOF: true
 LineEnding: LF
