@@ -1,4 +1,4 @@
-# FIXME: name project
+# Seal Browser 🦭
 
 ## Build instructions
 
