@@ -4,7 +4,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 # Find all .cpp and .h files
-dirs=($REPO_ROOT/src)
+dirs=($REPO_ROOT/src $REPO_ROOT/tests)
 files=$(find "${dirs[@]}" -type f \( -name '*.cpp' -o -name '*.h' \))
 
 format_issues_found=0
