@@ -9,9 +9,31 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(CURL REQUIRED)
 
-add_executable(browser 
-    src/main.cpp
+include(FetchContent)
+FetchContent_Declare(
+    doctest
+    GIT_REPOSITORY https://github.com/doctest/doctest.git
+    GIT_TAG v2.4.12
+)
+FetchContent_MakeAvailable(doctest)
+
+# Define a library for your core code
+add_library(seal_core
     src/url.cpp
 )
+target_include_directories(seal_core PUBLIC ${CMAKE_SOURCE_DIR}/src)
 
-target_link_libraries(browser CURL::libcurl)
+# Main executable links the core library
+add_executable(browser
+    src/main.cpp
+)
+target_link_libraries(browser PRIVATE seal_core CURL::libcurl)
+
+# Test executable links core library and doctest
+add_executable(tests
+    tests/test_url.cpp
+)
+target_link_libraries(tests PRIVATE seal_core doctest::doctest)
+
+enable_testing()
+add_test(NAME MyUnitTests COMMAND tests)
