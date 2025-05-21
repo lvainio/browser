@@ -5,14 +5,14 @@
 // https://url.spec.whatwg.org/
 class Url {
 public:
-    explicit Url(const std::string &rawUrl);
+    explicit Url(const std::string& rawUrl);
 
     std::string request();
 
     std::string toString();
 
 private:
-    void parse(const std::string &rawUrl);
+    void parse(const std::string& rawUrl);
 
     // FIXME: how do we name private members?
     std::string url_;

@@ -1,8 +1,10 @@
 #include "url.h"
 
-#include <curl/curl.h>
+#include <stdio.h>
+#include <string.h>
 
 #include <cassert>
+#include <curl/curl.h>
 #include <iostream>
 #include <sstream>
 #include <unordered_map>
@@ -10,7 +12,7 @@
 
 // https://url.spec.whatwg.org/
 // FIXME: implement tests
-Url::Url(const std::string &rawUrl) {
+Url::Url(const std::string& rawUrl) {
     url_ = rawUrl;
 
     auto pos = rawUrl.find("://");
@@ -26,16 +28,16 @@ Url::Url(const std::string &rawUrl) {
     }
 }
 
-size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp) {
+size_t WriteCallback(void* contents, size_t size, size_t nmemb, void* userp) {
     size_t total_size = size * nmemb;
-    ((std::string *)userp)->append((char *)contents, total_size);
+    ((std::string*) userp)->append((char*) contents, total_size);
     return total_size;
 }
 
 std::string Url::request() {
     std::string fullUrl = this->toString();
 
-    CURL *curl;
+    CURL* curl;
     CURLcode res;
     std::string response_body;
     std::string response_headers;
@@ -53,19 +55,16 @@ std::string Url::request() {
         res = curl_easy_perform(curl);
 
         if (res != CURLE_OK) {
-            std::cerr << "Request failed: " << curl_easy_strerror(res)
-                      << std::endl;
+            std::cerr << "Request failed: " << curl_easy_strerror(res) << std::endl;
         } else {
-            std::cout << "=== Response Headers ===\n"
-                      << response_headers << "\n";
+            std::cout << "=== Response Headers ===\n" << response_headers << "\n";
             std::cout << "=== Response Body ===\n" << response_body << "\n";
         }
 
         // parse status line
         size_t pos = response_headers.find("\r\n");
-        std::string statusLine = (pos != std::string::npos)
-                                     ? response_headers.substr(0, pos)
-                                     : response_headers;
+        std::string statusLine =
+            (pos != std::string::npos) ? response_headers.substr(0, pos) : response_headers;
         std::istringstream stream(statusLine);
 
         std::string httpVersion;
@@ -108,9 +107,9 @@ std::string Url::request() {
             }
         }
 
-        for (const auto &header : headerMap) {
+        for (const auto& header : headerMap) {
             std::cout << header.first << ": ";
-            for (const auto &value : header.second) {
+            for (const auto& value : header.second) {
                 std::cout << value << ", ";
             }
             std::cout << std::endl;
