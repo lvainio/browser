@@ -29,8 +29,7 @@ int main() {
 
     std::string body = url.request();
 
-    std::cout << "------------\nPRINTING HTML BODY:\n------------ "
-              << std::endl;
+    std::cout << "------------\nPRINTING HTML BODY:\n------------ " << std::endl;
 
     show(body);
 }
