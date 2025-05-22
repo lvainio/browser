@@ -17,19 +17,16 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(doctest)
 
-# Define a library for your core code
 add_library(seal_core
     src/url.cpp
 )
 target_include_directories(seal_core PUBLIC ${CMAKE_SOURCE_DIR}/src)
 
-# Main executable links the core library
-add_executable(browser
+add_executable(seal
     src/main.cpp
 )
 target_link_libraries(browser PRIVATE seal_core CURL::libcurl)
 
-# Test executable links core library and doctest
 add_executable(tests
     tests/test_url.cpp
 )
