@@ -9,6 +9,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(CURL REQUIRED)
 
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
+
 include(FetchContent)
 FetchContent_Declare(
     doctest
@@ -25,7 +27,7 @@ target_include_directories(seal_core PUBLIC ${CMAKE_SOURCE_DIR}/src)
 add_executable(seal
     src/main.cpp
 )
-target_link_libraries(browser PRIVATE seal_core CURL::libcurl)
+target_link_libraries(seal PRIVATE seal_core CURL::libcurl Qt6::Widgets)
 
 add_executable(tests
     tests/test_url.cpp
