@@ -1,18 +1,17 @@
-#include <iostream>
-
-#include "url.h"
-
 #include <QApplication>
 #include <QMainWindow>
 #include <QPainter>
 #include <QWidget>
+#include <iostream>
+
+#include "url.h"
 
 class RenderArea : public QWidget {
 public:
-    RenderArea(QWidget *parent = nullptr) : QWidget(parent) {}
+    RenderArea(QWidget* parent = nullptr) : QWidget(parent) {}
 
 protected:
-    void paintEvent(QPaintEvent *event) override {
+    void paintEvent(QPaintEvent* event) override {
         Q_UNUSED(event);
         QPainter painter(this);
 
@@ -33,7 +32,7 @@ public:
         setWindowTitle("My Custom Browser");
         resize(800, 600);
 
-        auto *renderArea = new RenderArea(this);
+        auto* renderArea = new RenderArea(this);
         setCentralWidget(renderArea);
     }
 };
@@ -52,7 +51,7 @@ void show(std::string body) {
     std::cout << std::endl;
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     std::size_t testvar = 5;
 
     std::cout << sizeof testvar << std::endl;
